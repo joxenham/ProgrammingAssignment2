@@ -30,13 +30,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ##CacheSolve takes the matrix created in the previous function and computes the inverse and caches
 ##the results.  In addition, it stores the result, and returns it if called a second time.
 
-cacheSolve <- function(x, ...) {inv<-x$getinv()
+cacheSolve <- function(x, ...) {z<-x$getinv()
         if(!is.null(z)){
                 message("Retreving data")
                 return(z)
         }
         data<-x$get()
-        inv <- solve(data, ... )
+        z <- solve(data, ... )
         x$setinv(z)
         z
         ## Return a matrix that is the inverse of 'x'
